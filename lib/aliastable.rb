@@ -53,6 +53,10 @@ class AliasTable
       end
     end
 
+    # Speeds up getting a random index in the #generate method by around
+    # 10% with a small increase in memory
+    @indexes = [*0...@p_primary.size]
+
     # Needed to use Rationals when constructing @p_primary to avoid
     # precision issues with floating-point arithmetic, but now we
     # want to convert them back to floats to speed up comparison with
@@ -65,7 +69,7 @@ class AliasTable
   # since two uniforms are used for each value that gets generated.
   #
   def generate
-    column = rand(@x.length)
+    column = @indexes.sample
     rand <= @p_primary[column] ? @x[column] : @alias[column]
   end
 end
