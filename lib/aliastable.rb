@@ -36,6 +36,8 @@ class AliasTable
     @alias = Array.new(@x.length)
     parity = Rational(1, @x.length)
     group = @p_primary.each_index.group_by { |i| @p_primary[i] <=> parity }
+    parity_set = group.fetch(0, [])
+    parity_set.each { |i| @p_primary[i] = Rational(1) }
     deficit_set = group[-1]
     surplus_set = group[1]
     until deficit_set.empty?
