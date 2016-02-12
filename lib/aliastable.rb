@@ -52,6 +52,12 @@ class AliasTable
         (@p_primary[surplus] < parity ? deficit_set : surplus_set) << surplus
       end
     end
+
+    # Needed to use Rationals when constructing @p_primary to avoid
+    # precision issues with floating-point arithmetic, but now we
+    # want to convert them back to floats to speed up comparison with
+    # `rand`—by approximately 100% in tests on my machine.
+    @p_primary.map!(&:to_f)
   end
 
   # Return a random outcome from this object's distribution.
