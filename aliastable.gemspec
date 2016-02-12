@@ -1,10 +1,10 @@
 # -*- ruby -*-
-_VERSION = "3.0.3"
+_VERSION = "3.0.4"
 
 Gem::Specification.new do |s|
   s.name = "aliastable"
   s.version = _VERSION
-  s.date = "2015-09-10"
+  s.date = "2016-02-12"
   s.summary = "Efficiently generate random outcomes from an arbitrary categorical distribution."
   s.email = "pjs@alum.mit.edu"
   s.description = "If a categorical distribution has k distinct values, traditional approaches will require O(k) work to pick an outcome with the correct probabilities.  This algorithm uses conditional probability to construct a table which will yield outcomes with the correct probabilities, but in O(1) time."
