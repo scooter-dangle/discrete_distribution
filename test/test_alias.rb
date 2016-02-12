@@ -28,7 +28,13 @@ Dir['test/infile.*'].each do |f_name|
   f.close
   begin
     at = AliasTable.new(x, probs)
-    nvars.times { counts[at.generate] += 1 }
+    nvars.times do
+      element = at.generate
+      unless x.include?(element)
+        raise "AliasTable generated an element not included in original sample: #{element.inspect}"
+      end
+      counts[element] += 1
+    end
     puts 'All values should be in range almost always:'
     counts.each_key do |k|
       printf "%s: Allowable Range = %d, Expected - Observed = %d\n",
