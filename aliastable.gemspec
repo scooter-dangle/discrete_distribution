@@ -1,5 +1,5 @@
 # -*- ruby -*-
-_VERSION = "3.0.4"
+_VERSION = "3.0.5"
 
 Gem::Specification.new do |s|
   s.name = "aliastable"
