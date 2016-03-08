@@ -1,6 +1,9 @@
-*.pdf
-*.csv
-outfile*
-
+/.bundle/
+/.yardoc
+/Gemfile.lock
+/_yardoc/
+/coverage/
 /doc/
-*.gem
+/pkg/
+/spec/reports/
+/tmp/
